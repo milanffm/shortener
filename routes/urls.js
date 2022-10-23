@@ -11,9 +11,10 @@ const router = express.Router();
 router.post('/short', async (req, res) => {
   const { origUrl } = req.body;
   const base = process.env.BASE;
+  console.log('origUrl======>', origUrl)
 
   const urlId = nanoid();
-  if (utils.validateUrl(origUrl)) {
+  if (validateUrl(origUrl)) {
     try {
       let url = await Url.findOne({ origUrl });
       if (url) {
@@ -40,4 +41,4 @@ router.post('/short', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
