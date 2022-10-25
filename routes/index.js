@@ -4,11 +4,9 @@ import Url from "../models/Url.js";
 const router = express.Router();
 
 router.get("/:urlId", async (req, res) => {
-  console.log("urlId ========>", req.params.urlId);
   try {
     const url = await Url.findOne({ urlId: req.params.urlId });
     if (url) {
-      console.log("url ==>", url);
       await Url.updateOne(
         {
           urlId: req.params.urlId,

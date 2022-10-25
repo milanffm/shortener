@@ -11,7 +11,6 @@ const router = express.Router();
 router.post('/short', async (req, res) => {
   const { origUrl } = req.body;
   const base = process.env.BASE;
-  console.log('origUrl======>', origUrl)
 
   const urlId = nanoid();
   if (validateUrl(origUrl)) {
